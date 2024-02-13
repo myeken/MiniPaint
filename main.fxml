@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#globalKeyEvents" prefHeight="590.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.Controller">
+   <top>
+      <HBox prefHeight="140.0" prefWidth="600.0" style="-fx-border-color: grey; -fx-border-width: 1 0 1 0;" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="84.0" prefWidth="290.0">
+              <columnConstraints>
+                  <ColumnConstraints />
+                <ColumnConstraints />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="49.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="216.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Red" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label text="Green" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label text="Blue" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Slider fx:id="redSlider" blockIncrement="1.0" max="255.0" prefWidth="163.0" GridPane.columnIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Slider>
+                  <Slider fx:id="greenSlider" max="255.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Slider>
+                  <Slider fx:id="blueSlider" max="255.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Slider>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </GridPane>
+            <GridPane alignment="CENTER" prefHeight="139.0" prefWidth="146.0" style="-fx-border-color: teal; -fx-border-width: 0 1 0 1;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Insert" textAlignment="CENTER" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <CheckBox fx:id="filledChk" mnemonicParsing="false" onMouseClicked="#createShape" selected="true" text="Filled" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></CheckBox>
+                  <StackPane onMouseClicked="#textMode" prefHeight="0.0" prefWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Rectangle fx:id="textMode" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="34.0" stroke="TRANSPARENT" strokeType="INSIDE" width="63.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Rectangle>
+                        <Text fx:id="menuText" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke: black;" text="Text">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Text>
+                     </children>
+                  </StackPane>
+                  <StackPane onKeyTyped="#lineMode" onMouseClicked="#lineMode" prefHeight="0.0" prefWidth="0.0" GridPane.rowIndex="1">
+                     <children>
+                        <Rectangle fx:id="lineMode" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="34.0" stroke="TRANSPARENT" strokeType="INSIDE" width="63.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Rectangle>
+                        <Line fx:id="menuLine" endX="-65.62132263183594" endY="2.384185791015625E-6" startX="-100.0" strokeWidth="3.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Line>
+                     </children>
+                  </StackPane>
+                  <StackPane onKeyTyped="#lineMode" onMouseClicked="#circleMode" prefHeight="0.0" prefWidth="0.0" GridPane.rowIndex="2">
+                     <children>
+                        <Rectangle fx:id="circleMode" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="34.0" stroke="TRANSPARENT" strokeType="INSIDE" width="63.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Rectangle>
+                        <Circle fx:id="menuCircle" fill="DODGERBLUE" radius="15.0" stroke="BLACK" strokeType="INSIDE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </StackPane>
+                  <StackPane onKeyTyped="#lineMode" onMouseClicked="#rectMode" prefHeight="0.0" prefWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Rectangle fx:id="rectMode" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="34.0" stroke="TRANSPARENT" strokeType="INSIDE" width="63.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Rectangle>
+                        <Rectangle fx:id="menuRectangle" arcHeight="5.0" arcWidth="5.0" fill="#7bc6f8" height="30.0" stroke="BLACK" strokeType="INSIDE" width="30.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Rectangle>
+                     </children>
+                  </StackPane>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <Pane fx:id="pane" onMouseDragged="#resizeShape" onMousePressed="#createShape" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
